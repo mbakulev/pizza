@@ -9,13 +9,13 @@ public abstract class Pizza extends Dish {
     Logger logger = LogManager.getLogger(Pizza.class);
 
     protected int size;
-    protected Pizza(String name, int size, double price) {
-        super(name, price);
+    protected Pizza(String name, int size, double basePrice) {
+        super(name, basePrice);
         try{
-            if (size <=0 || size >= 10) throw new PizzaSizeException(size);
+            if (size <= 0 || size > 10) throw new PizzaSizeException(size);
             this.size = size;
         } catch (PizzaSizeException exception) {
-            logger.error("Ошибка размера пиццы");
+            logger.error("Нельзя делать пицца размером " + size);
         }
     }
 }

@@ -1,7 +1,12 @@
 package org.example.objects;
 
 public class MargaritaPizza extends Pizza {
-    protected MargaritaPizza(String name, int size, double price) {
-        super(name, size, price);
+    public MargaritaPizza(int size) {
+        super("Маргарита", size, 20);
+    }
+
+    @Override
+    protected double calculatePrice() {
+        return 10 + basePrice * size;
     }
 }
